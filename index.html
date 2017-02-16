@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GotWord?</title>
+
+    <style>
+        /* Import Google Fonts selected font */
+
+        @import "https://fonts.googleapis.com/css?family=Ubuntu";
+        body,
+        html {
+            margin: 0 auto;
+            width: 90%;
+            height: 90%;
+            background-color: #00A2E8;
+            font-family: Ubuntu, Arial;
+        }
+
+        #main {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #title {
+            font-size: 55px;
+            color: #b3b3b3;
+            height: 100px;
+        }
+
+        #rollers {
+            display: flex;
+            flex-direction: row;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #w_1,
+        #w_2 {
+            margin-right: 10px;
+        }
+
+        #btn {
+            height: 90px;
+            width: 90px;
+            border-radius: 90px;
+            border: 1px solid #b3b3b3;
+            background-color: #cc2900;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        #btn:hover {
+            background-color: #cc2900;
+            font-size: 30px;
+            height: 110px;
+            width: 110px;
+            border-radius: 110px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var col_1 = ["Lazy", "Stupid", "Insecure", "Idiotic", "Slimy", "Slutty", "Smelly", "Pompous", "Communist", "Dicknose", "Pie-eating", "Racist", "Elitist", "White Trash", "Drug-loving", "Butterface", "Tone deaf", "Ugly", "Creepy"];
+
+        var col_2 = ["Douche", "Ass", "Turd", "Rectum", "Butt", "Cock", "Shit", "Crotch", "Bitch", "Turd", "Prick", "Slut", "Taint", "Fuck", "Dick", "Boner", "Shart", "Nut", "Sphicter"];
+
+        var col_3 = ["Pilot", "Canoe", "Captain", "Pirate", "Hammer", "Knob", "Box", "Jockey", "Nazi", "Waffle", "Goblin", "Blossum", "Biscuit", "Clown", "Socket", "Monster", "Hound", "Dragon", "Balloon"];
+
+        var rand1 = 0;
+        var rand2 = 0;
+        var rand3 = 0;
+
+        var word1 = "";
+        var word2 = "";
+        var word3 = "";
+
+        function generate() {
+            document.getElementById("w_1").innerHTML = "";
+            document.getElementById("w_2").innerHTML = "";
+            document.getElementById("w_3").innerHTML = "";
+
+            rand1 = (Math.floor(Math.random() * col_1.length));
+            rand2 = (Math.floor(Math.random() * col_2.length));
+            rand3 = (Math.floor(Math.random() * col_3.length));
+
+            word1 = col_1[rand1];
+            word2 = col_2[rand2];
+            word3 = col_3[rand3];
+
+            document.getElementById("w_1").innerHTML = word1;
+            setTimeout(function(){document.getElementById("w_2").innerHTML = word2;}, 300);
+            setTimeout(function(){document.getElementById("w_3").innerHTML = word3;}, 500);
+        }
+
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="title"><em>GotWord?</em></div>
+        <div id="rollers">
+            <p id="w_1">WORD</p>
+            <p id="w_2">WORD</p>
+            <p id="w_3">WORD</p>
+        </div>
+        <div id="text_holder">
+            <p id="main_text">The best insult generator</p>
+        </div>
+        <div id="button_holder">
+            <input type="button" id="btn" onclick="generate()" value="ROLL"></input>
+        </div>
+    </div>
+</body>
+</html>
